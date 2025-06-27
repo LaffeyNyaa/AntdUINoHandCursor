@@ -310,60 +310,6 @@ namespace AntdUI
             catch (NotSupportedException) { disableDataBinding = true; }
         }
 
-        #region 鼠标
-
-        CursorType oldcursor = CursorType.Default;
-        public void SetCursor(bool val) => SetCursor(val ? CursorType.Hand : CursorType.Default);
-        public void SetCursor(CursorType cursor = CursorType.Default)
-        {
-            if (oldcursor == cursor) return;
-            oldcursor = cursor;
-            bool flag = true;
-            switch (cursor)
-            {
-                case CursorType.Hand:
-                    SetCursor(HandCursor);
-                    break;
-                case CursorType.IBeam:
-                    SetCursor(Cursors.IBeam);
-                    break;
-                case CursorType.No:
-                    SetCursor(Cursors.No);
-                    break;
-                case CursorType.SizeAll:
-                    flag = false;
-                    SetCursor(Cursors.SizeAll);
-                    break;
-                case CursorType.VSplit:
-                    flag = false;
-                    SetCursor(Cursors.VSplit);
-                    break;
-                case CursorType.HSplit:
-                    flag = false;
-                    SetCursor(Cursors.HSplit);
-                    break;
-                case CursorType.Default:
-                default:
-                    SetCursor(DefaultCursor);
-                    break;
-            }
-            Window.CanHandMessage = flag;
-        }
-        void SetCursor(Cursor cursor)
-        {
-            if (InvokeRequired)
-            {
-                Invoke(() => SetCursor(cursor));
-                return;
-            }
-            Cursor = cursor;
-        }
-
-        [Description("悬停光标"), Category("光标"), DefaultValue(typeof(Cursor), "Hand")]
-        public virtual Cursor HandCursor { get; set; } = Cursors.Hand;
-
-        #endregion
-
         #region 委托
 
 #if NET40 || NET46 || NET48

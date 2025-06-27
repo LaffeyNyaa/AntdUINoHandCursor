@@ -1161,7 +1161,6 @@ namespace AntdUI
                     }
                 }
                 if (count > 0) Invalidate();
-                SetCursor(hand > 0);
             }
         }
         void SetHover(VirtualItem it, bool value)

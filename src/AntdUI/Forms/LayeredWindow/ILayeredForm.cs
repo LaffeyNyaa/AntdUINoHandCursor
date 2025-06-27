@@ -39,7 +39,6 @@ namespace AntdUI
             ShowInTaskbar = false;
             Size = new Size(0, 0);
             actionLoadMessage = LoadMessage;
-            actionCursor = val => SetCursor(val);
         }
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
@@ -200,13 +199,6 @@ namespace AntdUI
                 catch { }
             }
             return Win32.SetBits(bmp, rect, handle, alpha);
-        }
-
-        Action<bool> actionCursor;
-        public void SetCursor(bool val)
-        {
-            if (InvokeRequired) Invoke(actionCursor, val);
-            else Cursor = val ? Cursors.Hand : DefaultCursor;
         }
 
         #region 无焦点窗体

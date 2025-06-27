@@ -1124,7 +1124,6 @@ namespace AntdUI
                                 subForm.Show(this);
                             }
                             foreach (var it in items) it.Hover = false;
-                            SetCursor(true);
                             return;
                         }
                         else
@@ -1230,7 +1229,6 @@ namespace AntdUI
                             }
                         }
                     }
-                    SetCursor(hand > 0);
                     if (count > 0) Invalidate();
                 }
             }
@@ -1277,7 +1275,6 @@ namespace AntdUI
 
         void ILeave()
         {
-            SetCursor(false);
             if (items == null || items.Count == 0) return;
             int count = 0;
             foreach (var it in items) ILeave(it, ref count);

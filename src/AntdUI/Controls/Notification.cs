@@ -536,14 +536,12 @@ namespace AntdUI
             {
                 close_button.MaxValue = Colour.FillSecondary.Get("Notification", TAMode.Auto).A;
                 close_button.Switch = rect_close.Contains(e.Location);
-                SetCursor(close_button.Switch);
                 if (close_button.Switch)
                 {
                     base.OnMouseMove(e);
                     return;
                 }
             }
-            if (config.Link != null) SetCursor(rect_link_text.Contains(e.Location));
             base.OnMouseMove(e);
         }
 

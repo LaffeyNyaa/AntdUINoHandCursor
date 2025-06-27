@@ -662,7 +662,6 @@ namespace AntdUI
             int x = e.X - _hasl, y = e.Y;
             if (dragHeader != null)
             {
-                SetCursor(CursorType.SizeAll);
                 dragHeader.hand = true;
                 dragHeader.xr = x - dragHeader.x;
                 int xr = dragHeader.x + dragHeader.xr;
@@ -722,7 +721,6 @@ namespace AntdUI
                 HoverAdd = false;
                 count++;
             }
-            SetCursor(hand > 0);
             if (count > 0) Invalidate();
         }
 

@@ -351,7 +351,6 @@ namespace AntdUI
                 if (_mouseHover == value) return;
                 _mouseHover = value;
                 var enabled = Enabled;
-                SetCursor(value && enabled);
                 if (enabled)
                 {
                     if (Config.HasAnimation(nameof(Radio)))

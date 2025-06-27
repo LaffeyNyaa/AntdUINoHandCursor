@@ -481,11 +481,9 @@ namespace AntdUI
             {
                 if (it.Visible && it.rect.Contains(e.Location))
                 {
-                    SetCursor(true);
                     return;
                 }
             }
-            SetCursor(false);
         }
 
         #endregion

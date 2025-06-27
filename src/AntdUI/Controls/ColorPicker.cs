@@ -757,20 +757,17 @@ namespace AntdUI
 
         protected override void OnMouseEnter(EventArgs e)
         {
-            SetCursor(true);
             base.OnMouseEnter(e);
             ExtraMouseHover = true;
             if (Trigger == Trigger.Hover && subForm == null) ClickDown();
         }
         protected override void OnMouseLeave(EventArgs e)
         {
-            SetCursor(false);
             base.OnMouseLeave(e);
             ExtraMouseHover = false;
         }
         protected override void OnLeave(EventArgs e)
         {
-            SetCursor(false);
             base.OnLeave(e);
             ExtraMouseHover = false;
         }

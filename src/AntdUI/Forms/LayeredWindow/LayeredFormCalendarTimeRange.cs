@@ -1251,9 +1251,7 @@ namespace AntdUI
                     }
                 }
                 if (count > 0) Print();
-                SetCursor(hand > 0);
             }
-            else SetCursor(false);
             base.OnMouseMove(e);
         }
 
@@ -1300,7 +1298,6 @@ namespace AntdUI
                     it.hover = false;
                 }
             }
-            SetCursor(false);
             Print();
             base.OnMouseLeave(e);
         }

@@ -849,7 +849,6 @@ namespace AntdUI
                     if (items == null || items.Count == 0) return;
                     int hand = 0;
                     foreach (var it in items) IMouseMove(it, e.X, e.Y, ref hand);
-                    SetCursor(hand > 0);
                 }
             }
             else ILeave();
@@ -887,7 +886,6 @@ namespace AntdUI
 
         void ILeave()
         {
-            SetCursor(false);
             if (items == null || items.Count == 0) return;
             int count = 0;
             foreach (var it in items)

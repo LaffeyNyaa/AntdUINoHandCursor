@@ -355,11 +355,9 @@ namespace AntdUI
                 {
                     if (it.Text.Call != null && it.Rect.Contains(e.Location))
                     {
-                        SetCursor(true);
                         return;
                     }
                 }
-                SetCursor(false);
             }
             base.OnMouseMove(e);
         }

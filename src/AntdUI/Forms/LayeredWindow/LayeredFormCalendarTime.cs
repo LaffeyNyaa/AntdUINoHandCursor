@@ -364,9 +364,7 @@ namespace AntdUI
                     }
                 }
                 if (count > 0) Print();
-                SetCursor(hand > 0);
             }
-            else SetCursor(false);
             base.OnMouseMove(e);
         }
 
@@ -377,7 +375,6 @@ namespace AntdUI
             scrollY_m.Leave();
             scrollY_s.Leave();
             foreach (var it in calendar_time) it.hover = false;
-            SetCursor(false);
             Print();
             base.OnMouseLeave(e);
         }

@@ -712,7 +712,6 @@ namespace AntdUI
                     }
                 }
             }
-            SetCursor(hand > 0);
             if (count > 0) Print();
         }
 

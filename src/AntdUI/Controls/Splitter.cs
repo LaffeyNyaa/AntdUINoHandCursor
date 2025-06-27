@@ -419,7 +419,6 @@ namespace AntdUI
         protected override void OnMouseLeave(EventArgs e)
         {
             base.OnMouseLeave(e);
-            SetCursor(CursorType.Default);
             m_bIsArrowRegion = false;
             Invalidate();
         }
@@ -432,7 +431,6 @@ namespace AntdUI
             Rectangle rect = SplitterRectangle, rect_arrow = ArrowRect(rect);
             if (_collapsePanel != ADCollapsePanel.None && rect_arrow.Contains(e.Location) && _MouseState != false)
             {
-                SetCursor(CursorType.Hand);
                 m_bIsArrowRegion = true;
                 Invalidate();
                 return;
@@ -445,14 +443,11 @@ namespace AntdUI
             if (rect.Contains(e.Location))
             {
                 //如果已经折叠，就不允许拖动了
-                if (_collapsePanel != ADCollapsePanel.None && !SplitPanelState) SetCursor(CursorType.Default);
-                else if (_MouseState == null && !IsSplitterFixed) SetCursor(Orientation == Orientation.Horizontal ? CursorType.HSplit : CursorType.VSplit);//鼠标没有按下，设置Split光标
                 return;
             }
             //正在拖动分隔栏
             if (_MouseState == false && !IsSplitterFixed)
             {
-                SetCursor(Orientation == Orientation.Horizontal ? CursorType.HSplit : CursorType.VSplit);
                 if (!Lazy)
                 {
                     SplitMove(e.X, e.Y);
@@ -460,7 +455,6 @@ namespace AntdUI
                     return;
                 }
             }
-            else SetCursor(CursorType.Default);
             base.OnMouseMove(e);
         }
 
@@ -518,53 +512,6 @@ namespace AntdUI
         }
 
         #region 鼠标
-
-        CursorType oldcursor = CursorType.Default;
-        public void SetCursor(bool val) => SetCursor(val ? CursorType.Hand : CursorType.Default);
-        public void SetCursor(CursorType cursor = CursorType.Default)
-        {
-            if (oldcursor == cursor) return;
-            oldcursor = cursor;
-            bool flag = true;
-            switch (cursor)
-            {
-                case CursorType.Hand:
-                    SetCursor(Cursors.Hand);
-                    break;
-                case CursorType.IBeam:
-                    SetCursor(Cursors.IBeam);
-                    break;
-                case CursorType.No:
-                    SetCursor(Cursors.No);
-                    break;
-                case CursorType.SizeAll:
-                    flag = false;
-                    SetCursor(Cursors.SizeAll);
-                    break;
-                case CursorType.VSplit:
-                    flag = false;
-                    SetCursor(Cursors.VSplit);
-                    break;
-                case CursorType.HSplit:
-                    flag = false;
-                    SetCursor(Cursors.HSplit);
-                    break;
-                case CursorType.Default:
-                default:
-                    SetCursor(DefaultCursor);
-                    break;
-            }
-            SetWindow(flag);
-        }
-        void SetCursor(Cursor cursor)
-        {
-            if (InvokeRequired)
-            {
-                Invoke(new Action(() => SetCursor(cursor)));
-                return;
-            }
-            Cursor = cursor;
-        }
 
         bool setwindow = false;
         void SetWindow(bool flag)

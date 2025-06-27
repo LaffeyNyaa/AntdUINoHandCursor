@@ -533,14 +533,12 @@ namespace AntdUI
                         if (tmpcol_width.ContainsKey(item.i)) tmpcol_width[item.i] = width;
                         else tmpcol_width.Add(item.i, width);
                         if (LoadLayout()) Invalidate();
-                        SetCursor(CursorType.VSplit);
                         return;
                     }
                 }
             }
             if (dragHeader != null)
             {
-                SetCursor(CursorType.SizeAll);
                 dragHeader.hand = true;
                 dragHeader.xr = e.X - dragHeader.x;
                 if (rows == null) return;
@@ -565,7 +563,6 @@ namespace AntdUI
             }
             if (dragBody != null)
             {
-                SetCursor(CursorType.SizeAll);
                 dragBody.hand = true;
                 dragBody.xr = e.Y - dragBody.x;
                 if (rows == null) return;
@@ -603,7 +600,6 @@ namespace AntdUI
                             else if (cel_tmp is Template template) ILeave(template);
                         }
                     }
-                    SetCursor(false);
                 }
                 else
                 {
@@ -625,19 +621,14 @@ namespace AntdUI
                             {
                                 if (item.rect.Contains(r_x, r_y))
                                 {
-                                    SetCursor(CursorType.VSplit);
                                     return;
                                 }
                             }
                         }
-                        if (cel.SortWidth > 0) SetCursor(true);
-                        else if (has_check && cel.COLUMN is ColumnCheck columnCheck && columnCheck.NoTitle && cel.CONTAIN_REAL(r_x, r_y)) SetCursor(true);
                         else if (ColumnDragSort && cel.COLUMN.DragSort)
                         {
-                            SetCursor(CursorType.SizeAll);
                             return;
                         }
-                        else SetCursor(false);
                     }
                     else
                     {
@@ -662,12 +653,6 @@ namespace AntdUI
                                     else if (cel_tmp is Template template) ILeave(template);
                                 }
                             }
-                        }
-                        if (countmove > 0) SetCursor(CursorType.SizeAll);
-                        else
-                        {
-                            if (cel_sel.ROW.CanExpand && cel_sel.ROW.RectExpand.Contains(r_x, r_y)) { SetCursor(true); return; }
-                            SetCursor(MouseMoveRow(cel_sel, r_x, r_y, offset_x, offset_xi, offset_y, e));
                         }
                     }
                 }
@@ -1125,7 +1110,6 @@ namespace AntdUI
 
         void ILeave()
         {
-            SetCursor(false);
             if (rows == null || inEditMode) return;
             foreach (var it in rows)
             {

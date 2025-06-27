@@ -37,16 +37,6 @@ namespace AntdUI
             UpdateStyles();
         }
 
-        public void SetCursor(bool val)
-        {
-            if (InvokeRequired)
-            {
-                Invoke(() => SetCursor(val));
-                return;
-            }
-            Cursor = val ? Cursors.Hand : DefaultCursor;
-        }
-
         #region 主题
 
         bool dark = false;
@@ -260,7 +250,6 @@ namespace AntdUI
                     var mode = retval;
                     if (mode != HitTestValues.HTCLIENT)
                     {
-                        SetCursorHit(mode);
                         return true;
                     }
                 }
@@ -282,7 +271,6 @@ namespace AntdUI
                     var mode = retval;
                     if (mode != HitTestValues.HTCLIENT)
                     {
-                        SetCursorHit(mode);
                         return true;
                     }
                 }
@@ -374,7 +362,6 @@ namespace AntdUI
         {
             var handle = LoadCursor(IntPtr.Zero, id);
             if (handle == IntPtr.Zero) return;
-            User32.SetCursor(handle);
         }
 
         #endregion

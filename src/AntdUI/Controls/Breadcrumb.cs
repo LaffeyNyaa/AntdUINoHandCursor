@@ -295,14 +295,12 @@ namespace AntdUI
                 }
                 if (it.Hover) hand++;
             }
-            SetCursor(hand > 0);
             if (change > 0) Invalidate();
         }
 
         protected override void OnMouseLeave(EventArgs e)
         {
             base.OnMouseLeave(e);
-            SetCursor(false);
             if (items == null || items.Count == 0) return;
             int change = 0;
             foreach (BreadcrumbItem it in items)
@@ -319,7 +317,6 @@ namespace AntdUI
         protected override void OnLeave(EventArgs e)
         {
             base.OnLeave(e);
-            SetCursor(false);
             if (items == null || items.Count == 0) return;
             int change = 0;
             foreach (BreadcrumbItem it in items)

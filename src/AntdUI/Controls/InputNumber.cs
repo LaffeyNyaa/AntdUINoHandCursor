@@ -365,7 +365,6 @@ namespace AntdUI
                         hover_button_up.Switch = false;
                         hover_button_bottom.Switch = true;
                     }
-                    SetCursor(true);
                     return;
                 }
                 else hover_button_up.Switch = hover_button_bottom.Switch = false;

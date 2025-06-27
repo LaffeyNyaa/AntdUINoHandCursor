@@ -268,7 +268,6 @@ namespace AntdUI.Chat
                         if (change) count++;
                     }
                 }
-                SetCursor(hand > 0);
                 if (count > 0) Invalidate();
             }
             else ILeave();
@@ -290,7 +289,6 @@ namespace AntdUI.Chat
 
         void ILeave()
         {
-            SetCursor(false);
             if (items == null || items.Count == 0) return;
             int count = 0;
             foreach (MsgItem it in Items)

@@ -397,7 +397,6 @@ namespace AntdUI
                     if (it.hover) { it.hover = false; count++; }
                 }
             }
-            SetCursor(hand > 0);
             if (count > 0) Print();
             base.OnMouseMove(e);
         }
@@ -411,7 +410,6 @@ namespace AntdUI
             {
                 if (it.hover) { it.hover = false; count++; }
             }
-            SetCursor(false);
             if (count > 0) Print();
             base.OnMouseLeave(e);
         }

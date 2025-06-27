@@ -1488,9 +1488,7 @@ namespace AntdUI
                     }
                 }
                 if (count > 0) Print();
-                SetCursor(hand > 0);
             }
-            else SetCursor(false);
             base.OnMouseMove(e);
         }
 
@@ -1522,7 +1520,6 @@ namespace AntdUI
             {
                 foreach (var it in calendar_day2) it.hover = false;
             }
-            SetCursor(false);
             Print();
             base.OnMouseLeave(e);
         }

@@ -315,7 +315,6 @@ namespace AntdUI.Chat
             if (mouseDown != null)
             {
                 mouseDownMove = true;
-                SetCursor(CursorType.IBeam);
                 var index = GetCaretPostion(mouseDown, oldMouseDown.X + (e.X - oldMouseDown.X), oldMouseDown.Y + scrolly + (e.Y - oldMouseDown.Y));
                 mouseDown.SelectionLength = Math.Abs(index - mouseDown.selectionStart);
                 if (index > mouseDown.selectionStart) mouseDown.selectionStartTemp = mouseDown.selectionStart;
@@ -341,8 +340,6 @@ namespace AntdUI.Chat
                         //if (change) count++;
                     }
                 }
-                if (ibeam > 0) SetCursor(CursorType.IBeam);
-                else SetCursor(hand > 0);
                 if (count > 0) Invalidate();
             }
         }
@@ -373,7 +370,6 @@ namespace AntdUI.Chat
         protected override void OnMouseLeave(EventArgs e)
         {
             ScrollBar.Leave();
-            SetCursor(false);
             base.OnMouseLeave(e);
         }
 
@@ -392,7 +388,6 @@ namespace AntdUI.Chat
         void ILeave()
         {
             ScrollBar.Leave();
-            SetCursor(false);
             if (items == null || items.Count == 0) return;
             int count = 0;
             foreach (IChatItem it in Items)

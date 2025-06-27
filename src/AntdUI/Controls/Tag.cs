@@ -543,9 +543,7 @@ namespace AntdUI
             {
                 hover_close.MaxValue = Colour.Text.Get("Tag", ColorScheme).A - Colour.TextQuaternary.Get("Tag", ColorScheme).A;
                 hover_close.Switch = rect_close.Contains(e.Location);
-                SetCursor(hover_close.Switch);
             }
-            else SetCursor(false);
             base.OnMouseMove(e);
         }
         #endregion

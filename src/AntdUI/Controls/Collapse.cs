@@ -595,11 +595,9 @@ namespace AntdUI
             {
                 if (item.Contains(e.X, e.Y))
                 {
-                    SetCursor(true);
                     return;
                 }
             }
-            SetCursor(false);
             base.OnMouseMove(e);
         }
 

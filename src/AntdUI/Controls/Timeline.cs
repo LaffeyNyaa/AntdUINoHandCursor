@@ -287,13 +287,11 @@ namespace AntdUI
                         {
                             if (it.rect.Contains(e.X, e.Y + ScrollBar.Value))
                             {
-                                SetCursor(true);
                                 return;
                             }
                         }
                     }
                 }
-                SetCursor(false);
             }
         }
 

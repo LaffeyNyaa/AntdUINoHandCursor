@@ -593,12 +593,10 @@ namespace AntdUI
                         }
                     }
                 }
-                SetCursor(hand > 0);
                 if (count > 0) Print();
                 select_index = hand;
                 if (hand > -1)
                 {
-                    SetCursor(true);
                     if (oldSub == hand) return;
                     var it = rectsContent[hand];
                     oldSub = hand;
@@ -615,7 +613,6 @@ namespace AntdUI
                     oldSub = -1;
                     subForm?.IClose();
                     subForm = null;
-                    SetCursor(false);
                 }
             }
             base.OnMouseMove(e);

@@ -503,7 +503,6 @@ namespace AntdUI
             {
                 close_button.MaxValue = Colour.FillSecondary.Get("Modal").A;
                 close_button.Switch = rect_close.Contains(e.Location);
-                SetCursor(close_button.Switch);
             }
             base.OnMouseMove(e);
         }

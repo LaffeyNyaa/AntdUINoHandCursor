@@ -876,7 +876,6 @@ namespace AntdUI
                 }
             }
             if (count > 0) Invalidate();
-            SetCursor(hand > 0);
             base.OnMouseMove(e);
         }
 
@@ -901,7 +900,6 @@ namespace AntdUI
             {
                 foreach (var it in calendar_day) it.hover = false;
             }
-            SetCursor(false);
             Invalidate();
             base.OnMouseLeave(e);
         }

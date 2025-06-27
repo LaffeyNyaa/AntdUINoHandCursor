@@ -654,7 +654,6 @@ namespace AntdUI
             if (MouseMovePre(e.X, e.Y))
             {
                 Hover_i = -1;
-                SetCursor(true);
                 return;
             }
             int i = 0, x = e.X + scroll_x, y = e.Y + scroll_y;
@@ -664,17 +663,14 @@ namespace AntdUI
                 {
                     if (it.Enabled && EnableSwitch)
                     {
-                        SetCursor(true);
                         Hover_i = i;
                         style.MouseMove(x, y);
                     }
-                    else SetCursor(false);
                     return;
                 }
                 i++;
             }
             style.MouseMove(x, y);
-            SetCursor(false);
         }
         protected override void OnMouseUp(MouseEventArgs e)
         {
@@ -773,7 +769,6 @@ namespace AntdUI
             style.MouseLeave();
             Hover_l = Hover_r = false;
             Hover_i = -1;
-            SetCursor(false);
             base.OnMouseLeave(e);
         }
 

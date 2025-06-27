@@ -808,7 +808,6 @@ namespace AntdUI
             {
                 if (loading == value) return;
                 loading = value;
-                SetCursor(_mouseHover && Enabled && !value);
                 BeforeAutoSize();
                 ThreadLoading?.Dispose();
                 if (loading)
@@ -997,7 +996,6 @@ namespace AntdUI
                 if (_mouseHover == value) return;
                 _mouseHover = value;
                 bool enabled = Enabled;
-                SetCursor(value && enabled && !loading);
                 if (enabled)
                 {
                     var backHover = GetColorO();

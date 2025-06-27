@@ -420,7 +420,6 @@ namespace AntdUI
                         }
                     }
                 }
-                SetCursor(hand > 0);
             }
             else ILeave();
         }

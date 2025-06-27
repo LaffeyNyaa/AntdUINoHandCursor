@@ -1134,7 +1134,6 @@ namespace AntdUI
                 }
                 i++;
             }
-            SetCursor(hand > 0);
             if (change > 0) Invalidate();
             if (hoveindex == hoveindexold) return;
             hoveindexold = hoveindex;
@@ -1165,7 +1164,6 @@ namespace AntdUI
         protected override void OnMouseLeave(EventArgs e)
         {
             base.OnMouseLeave(e);
-            SetCursor(false);
             tooltipForm?.Close();
             tooltipForm = null;
             if (items == null || items.Count == 0) return;
@@ -1184,7 +1182,6 @@ namespace AntdUI
         protected override void OnLeave(EventArgs e)
         {
             base.OnLeave(e);
-            SetCursor(false);
             if (items == null || items.Count == 0) return;
             int change = 0;
             foreach (var it in items)

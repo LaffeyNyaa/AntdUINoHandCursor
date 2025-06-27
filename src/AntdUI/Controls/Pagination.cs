@@ -489,8 +489,6 @@ namespace AntdUI
                     }
                     if (btn.hover) count_hand++;
                 }
-                if (count_no > 0) SetCursor(CursorType.No);
-                else SetCursor(count_hand > 0);
                 if (count > 0) Invalidate();
             }
             base.OnMouseMove(e);
@@ -498,7 +496,6 @@ namespace AntdUI
 
         protected override void OnMouseLeave(EventArgs e)
         {
-            SetCursor(false);
             if (buttons.Length > 0)
             {
                 int count = 0;

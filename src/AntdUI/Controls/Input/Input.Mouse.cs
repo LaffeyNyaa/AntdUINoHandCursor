@@ -78,7 +78,6 @@ namespace AntdUI
                     float y = (e.Y - ScrollSliderFull / 2F) / (ScrollRect.Height - ScrollSliderFull), VrValue = ScrollYMax + Height;
                     ScrollY = (int)(y * VrValue);
                     ScrollYDown = true;
-                    SetCursor(false);
                     Window.CanHandMessage = false;
                     return;
                 }
@@ -134,7 +133,6 @@ namespace AntdUI
             else if (mDown && cache_font != null)
             {
                 mDownMove = true;
-                SetCursor(CursorType.IBeam);
                 var caret = GetCaretPostion(mDownLocation.X + scrollx + (e.X - mDownLocation.X), mDownLocation.Y + scrolly + (e.Y - mDownLocation.Y));
                 if (caret == null)
                 {
@@ -166,23 +164,16 @@ namespace AntdUI
                         hover_clear = hover;
                         Invalidate();
                     }
-                    if (hover) { SetCursor(true); return; }
                 }
                 if ((HasPrefix && rect_l.Contains(e.Location) && PrefixClick != null) || (HasSuffix && rect_r.Contains(e.Location) && SuffixClick != null))
                 {
-                    SetCursor(true);
                     return;
                 }
-                if (IMouseMove(e.Location)) SetCursor(true);
                 else if (CaretInfo.ReadShow)
                 {
-                    if (rect_text.Contains(e.Location)) SetCursor(true);
-                    else SetCursor(false);
                 }
                 else
                 {
-                    if (setScroll && rect_text.Contains(e.Location)) SetCursor(CursorType.IBeam);
-                    else SetCursor(false);
                 }
             }
         }
